@@ -16,6 +16,14 @@ public class Main {
 
     public static Scanner scanner;  // Note: Do not change this line.
 
+
+    /**
+     * @param board the semester board (indicates the status of the students)
+     * @param m the number of rows in the board
+     * @param n the number of columns in the board
+     * initializing the student status by putting zero's in every cell of the matrix (board),
+     * zero indicates an invalid student
+     */
     public static void initMatrix(int[][] board, int m, int n) {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
@@ -48,7 +56,7 @@ public class Main {
     }
 
 
-
+    /** prints the game board*/
     public static void printBoard(int[][] board, int m, int n) {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
@@ -115,6 +123,17 @@ public class Main {
         }
     }
 
+
+
+    /**
+     * @param board the semester board (indicates the status of the students)
+     * @param validFriends A matrix[m][n] used to save for each student in board the number of valid friends he has.
+     * @param m the number of rows in the board
+     * @param n the number of columns in the board
+     * counting the number of changes made to students status
+     * Changing the students status according to the game's rules
+     * @return the number of changes made to students status
+     */
     public static int semesterChanges(int[][] board, int[][] validFriends, int m, int n) {
         int numOfChanges = 0;
         for (int i = 0; i < m; i++) {
@@ -184,10 +203,7 @@ public class Main {
      * @param semester the number of the current semester.
      * @param validStudentsNum the number of valid students on the board.
      * @param changes the number of changes in the current semester
-     * The function checks if the game is still on by these rules:
-     * haven't reached the semester number limit.
-     * there were changes in the past semester.
-     * there's at least one valid students on board.
+     * The function checks if the game is still on according to it's rules
      * @return the function returns true if the game can continue false otherwise
      */
     public static boolean isGameContinues(int[][] board , int m, int n, int semester, int validStudentsNum, int changes) {
